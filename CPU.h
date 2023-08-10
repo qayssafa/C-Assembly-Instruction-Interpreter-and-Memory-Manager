@@ -8,6 +8,7 @@
 #include "SetInstruction.h"
 #include "AddInstruction.h"
 #include "AddiInstruction.h"
+#include "PrintInstruction.h"
 
 #ifndef TASKONE_CPU_H
 #define TASKONE_CPU_H
@@ -75,6 +76,8 @@ public:
 
 
             }else if(opcode == "print"){
+                PrintInstruction printInsrt(ram);
+                printInsrt.execute(line);
                 PC++;
 
             }else if(opcode == "jump"){

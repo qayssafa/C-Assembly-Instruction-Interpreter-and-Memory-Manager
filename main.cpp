@@ -51,8 +51,8 @@ int main() {
     cpu.ReadDataFromTextFile("instructions.txt");
     cpu.decodeAndExecute();
 
-    int i = ram.getValue(3);
-    std::cout<<i<<std::endl;
+    /*int i = ram.getValue(3);
+    std::cout<<i<<std::endl;*/
 
 
 
