@@ -1,0 +1,5 @@
+# ninja log v5
+0	15	1691657910910059932	build.ninja	4a739b88332eeed1
+1	1504	1691585701969267263	CMakeFiles/TaskOne.dir/MemoryClass.cpp.o	9b6287c83b54bdf
+1	343	1691656564030849444	CMakeFiles/TaskOne.dir/main.cpp.o	1a32a9cdcba66cde
+343	397	1691656564086848885	TaskOne	69d23dd461c33c27
