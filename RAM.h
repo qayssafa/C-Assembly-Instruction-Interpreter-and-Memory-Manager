@@ -5,8 +5,7 @@
 #include "vector"
 #include "string"
 #include "Memory.h"
-#ifndef TASKONE_RAM_H
-#define TASKONE_RAM_H
+#pragma once
 class RAM : public Memory{
 
 public:
@@ -18,4 +17,3 @@ public:
         data[address] = std::to_string(value);
     }
 };
-#endif //TASKONE_RAM_H

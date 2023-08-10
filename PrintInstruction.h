@@ -2,8 +2,7 @@
 // Created by qays on 8/10/23.
 //
 
-#ifndef TASKONE_PRINTINSTRUCTION_H
-#define TASKONE_PRINTINSTRUCTION_H
+#pragma once
 #include "Instruction.h"
 #include "RAM.h"
 #include <sstream>
@@ -31,4 +30,3 @@ public:
     }
 };
 
-#endif //TASKONE_PRINTINSTRUCTION_H

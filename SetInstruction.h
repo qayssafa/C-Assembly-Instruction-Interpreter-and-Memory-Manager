@@ -2,7 +2,7 @@
 #include "RAM.h"
 #include <sstream>
 #include <iostream>
-
+#pragma once
 class SetInstruction : public Instruction {
 private:
     RAM &ram;

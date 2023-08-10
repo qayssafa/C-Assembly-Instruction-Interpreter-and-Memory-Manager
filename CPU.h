@@ -3,6 +3,7 @@
 //
 #include <fstream>
 #include <sstream>
+#include <memory>
 #include "ROM.h"
 #include "RAM.h"
 #include "SetInstruction.h"
@@ -11,8 +12,7 @@
 #include "PrintInstruction.h"
 #include "JumpInstruction.h"
 
-#ifndef TASKONE_CPU_H
-#define TASKONE_CPU_H
+#pragma once
 
 class CPU{
 private:
@@ -97,37 +97,38 @@ public:
             std::string line = rawInstructions[PC];
             std::string opcode = getFirstWord(line);
 
+            std::unique_ptr<Instruction> instr;  // Define a unique_ptr for the Instruction base class
+
             if (opcode == "set") {
-                SetInstruction setInstr(ram);
-                setInstr.execute(line);
-                PC++;
+                instr = std::make_unique<SetInstruction>(ram);
 
             } else if(opcode == "add") {
-                AddInstruction addInstr(ram);
-                addInstr.execute(line);
-                PC++;
+                instr = std::make_unique<AddInstruction>(ram);
 
             } else if(opcode == "addi") {
-                AddiInstruction addiInstr(ram);
-                addiInstr.execute(line);
-                PC++;
+                instr = std::make_unique<AddiInstruction>(ram);
 
             } else if(opcode == "exit") {
                 exit(0);
 
             } else if(opcode == "print") {
-                PrintInstruction printInstr(ram);
-                printInstr.execute(line);
-                PC++;
+                instr = std::make_unique<PrintInstruction>(ram);
 
             } else if(opcode == "jump") {
-                JumpInstruction jumpInstr(PC);
-                jumpInstr.execute(line);
-                // No PC++ here, since the JumpInstruction modifies the PC directly
+                instr = std::make_unique<JumpInstruction>(PC);
 
+            }
+
+            if (instr) {  // If we successfully created an instruction object
+                instr->execute(line);
+
+                // Only increment PC if the instruction wasn't "jump"
+                if (opcode != "jump") {
+                    PC++;
+                }
             } else {
-               // std::cerr << "Unknown instruction: " << opcode << std::endl;
-                PC++;  // Go to next instruction even if current is unknown
+                // If the instruction was unknown
+                PC++;
             }
         }
     }
@@ -135,6 +136,6 @@ public:
 
 
 
+
 };
 
-#endif //TASKONE_CPU_H

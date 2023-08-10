@@ -3,8 +3,7 @@
 //
 #include <iostream>
 #include "Memory.h"
-#ifndef TASKONE_ROM_H
-#define TASKONE_ROM_H
+#pragma once
 
 class ROM : public Memory {
 private:
@@ -30,4 +29,3 @@ public:
     }
 
 };
-#endif //TASKONE_ROM_H

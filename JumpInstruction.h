@@ -2,8 +2,7 @@
 // Created by qays on 8/10/23.
 //
 
-#ifndef TASKONE_JUMPINSTRUCTION_H
-#define TASKONE_JUMPINSTRUCTION_H
+#pragma once
 #include "Instruction.h"
 #include <sstream>
 #include <iostream>
@@ -29,4 +28,3 @@ public:
     }
 };
 
-#endif //TASKONE_JUMPINSTRUCTION_H

@@ -3,8 +3,7 @@
 //
 #include "vector"
 #include "string"
-#ifndef TASKONE_MEMORY_H
-#define TASKONE_MEMORY_H
+#pragma once
 class Memory {
 protected:
     std::vector<std::string > data;
@@ -15,4 +14,3 @@ public:
 };
 
 
-#endif //TASKONE_MEMORY_H

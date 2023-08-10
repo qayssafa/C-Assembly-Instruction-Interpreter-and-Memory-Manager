@@ -1,7 +1,9 @@
 print 2
 print 2
+print 3
+addi 3 2 2
 print 2
-jump 8
+jump 10
 print 3
 print 3
 print 3
