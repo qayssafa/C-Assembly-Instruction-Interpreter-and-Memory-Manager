@@ -20,11 +20,18 @@ public:
         int targetAddress;
         iss >> opcode >> targetAddress;
 
-        if (opcode == "jump") {
+        if (opcode != "jump" || !iss.eof() || iss.fail()) {
+            std::cerr << "Invalid format for jump instruction!" << std::endl;
+            exit(0);
+        }else{
+            PC = targetAddress;
+        }
+
+       /* if (opcode == "jump") {
             PC = targetAddress;
         } else {
             std::cerr << "Incorrect opcode for JumpInstruction!" << std::endl;
-        }
+        }*/
     }
 };
 

@@ -21,12 +21,14 @@ public:
         int addr1, immediateValue, addr2;
         iss >> opcode >> addr1 >> immediateValue >> addr2;
 
-        if (opcode == "addi") {
+        if (opcode != "addi" || !iss.eof() || iss.fail()) {
+            std::cerr << "Invalid format for ADDi instruction!" << std::endl;
+            exit(0);
+        }else{
             int sum = ram.getValue(addr1) + immediateValue;
             ram.setValue(addr2, sum);
-        } else {
-            std::cerr << "Incorrect opcode for AddiInstruction!" << std::endl;
         }
+
     }
 };
 
