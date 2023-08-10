@@ -7,6 +7,7 @@
 #include "RAM.h"
 #include "SetInstruction.h"
 #include "AddInstruction.h"
+#include "AddiInstruction.h"
 
 #ifndef TASKONE_CPU_H
 #define TASKONE_CPU_H
@@ -61,13 +62,20 @@ public:
             } else if(opcode == "add"){
                 AddInstruction addInstr(ram);
                 addInstr.execute(line);
+                PC++;
 
             } else if(opcode == "addi"){
+                AddiInstruction addiInstr(ram);
+                addiInstr.execute(line);
+                PC++;
 
             }else if(opcode == "exit"){
+                PC++;
                 exit(0);
 
+
             }else if(opcode == "print"){
+                PC++;
 
             }else if(opcode == "jump"){
 

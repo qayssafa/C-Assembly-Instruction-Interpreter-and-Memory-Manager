@@ -12,11 +12,13 @@ int main() {
     ROM rom(15);
     CPU cpu(rom , ram);
 
-    /*ram.setValue(10,15);
-    ram.setValue(11 , 12);
+    ram.setValue(1,5);
+    ram.setValue(2 , 5);
+    ram.setValue(3 , 5);
 
 
-    int i = ram.getValue(11);
+
+    /*int i = ram.getValue(11);
     std::cout<<i<<std::endl;
      i = ram.getValue(10);
     std::cout<<i<<std::endl;*/
@@ -49,7 +51,7 @@ int main() {
     cpu.ReadDataFromTextFile("instructions.txt");
     cpu.decodeAndExecute();
 
-    int i = ram.getValue(10);
+    int i = ram.getValue(3);
     std::cout<<i<<std::endl;
 
 

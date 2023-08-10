@@ -11,4 +11,5 @@ add_executable(TaskOne main.cpp
         Instruction.h
         SetInstruction.h
         AddInstruction.h
+        AddiInstruction.h
 )
