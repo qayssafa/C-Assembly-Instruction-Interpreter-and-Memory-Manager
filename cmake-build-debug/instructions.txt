@@ -1,1 +1,8 @@
 print 2
+print 2
+print 2
+jump 8
+print 3
+print 3
+print 3
+exit

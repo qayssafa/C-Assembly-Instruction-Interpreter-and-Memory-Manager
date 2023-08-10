@@ -9,6 +9,7 @@
 #include "AddInstruction.h"
 #include "AddiInstruction.h"
 #include "PrintInstruction.h"
+#include "JumpInstruction.h"
 
 #ifndef TASKONE_CPU_H
 #define TASKONE_CPU_H
@@ -49,7 +50,7 @@ public:
         return firstWord;
     }
 
-    void decodeAndExecute() {
+    /*void decodeAndExecute() {
         const auto& rawInstructions = rom.getData();
 
         for (const auto& line : rawInstructions) {
@@ -81,11 +82,56 @@ public:
                 PC++;
 
             }else if(opcode == "jump"){
+                JumpInstruction jumpInstr(PC);
+                jumpInstr.execute(line);
 
             }
 
         }
+    }*/
+
+    void decodeAndExecute() {
+        const auto& rawInstructions = rom.getData();
+
+        while (PC < rawInstructions.size()) {
+            std::string line = rawInstructions[PC];
+            std::string opcode = getFirstWord(line);
+
+            if (opcode == "set") {
+                SetInstruction setInstr(ram);
+                setInstr.execute(line);
+                PC++;
+
+            } else if(opcode == "add") {
+                AddInstruction addInstr(ram);
+                addInstr.execute(line);
+                PC++;
+
+            } else if(opcode == "addi") {
+                AddiInstruction addiInstr(ram);
+                addiInstr.execute(line);
+                PC++;
+
+            } else if(opcode == "exit") {
+                exit(0);
+
+            } else if(opcode == "print") {
+                PrintInstruction printInstr(ram);
+                printInstr.execute(line);
+                PC++;
+
+            } else if(opcode == "jump") {
+                JumpInstruction jumpInstr(PC);
+                jumpInstr.execute(line);
+                // No PC++ here, since the JumpInstruction modifies the PC directly
+
+            } else {
+               // std::cerr << "Unknown instruction: " << opcode << std::endl;
+                PC++;  // Go to next instruction even if current is unknown
+            }
+        }
     }
+
 
 
 

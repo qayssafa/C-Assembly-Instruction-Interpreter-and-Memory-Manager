@@ -13,4 +13,5 @@ add_executable(TaskOne main.cpp
         AddInstruction.h
         AddiInstruction.h
         PrintInstruction.h
+        JumpInstruction.h
 )
