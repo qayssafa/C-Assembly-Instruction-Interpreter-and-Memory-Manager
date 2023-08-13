@@ -1,11 +1,13 @@
 set 5 10
+set 3 4
 print 5
-print 2
+print 10
 print 3
 addi 3 2 2
 print 2
-jump 11
+jump 9
 print 3
 print 3
 print 3
+print 5
 exit

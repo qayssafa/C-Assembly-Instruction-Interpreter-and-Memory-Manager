@@ -1,6 +1,4 @@
-//
-// Created by qays on 8/9/23.
-//
+
 #include <fstream>
 #include <sstream>
 #include <memory>
@@ -24,6 +22,12 @@ public:
     CPU(ROM &rom , RAM &ram) : rom(rom) , ram(ram){}
     std::vector<std::string> instructions;
 
+    void start(const std::string& filename){
+        ReadDataFromTextFile(filename);
+        rom.storeData(instructions);
+        decodeAndExecute();
+    }
+
     void ReadDataFromTextFile (std::string filename){
         std::ifstream inputFile(filename);
 
@@ -38,7 +42,7 @@ public:
 
         inputFile.close();
 
-        rom.storeData(instructions);
+        //rom.storeData(instructions);
 
     }
 
@@ -50,54 +54,15 @@ public:
         return firstWord;
     }
 
-    /*void decodeAndExecute() {
-        const auto& rawInstructions = rom.getData();
-
-        for (const auto& line : rawInstructions) {
-            std::string opcode = getFirstWord(line);
-
-            if (opcode == "set") {
-                SetInstruction setInstr(ram);
-                setInstr.execute(line);
-                PC++;
-
-            } else if(opcode == "add"){
-                AddInstruction addInstr(ram);
-                addInstr.execute(line);
-                PC++;
-
-            } else if(opcode == "addi"){
-                AddiInstruction addiInstr(ram);
-                addiInstr.execute(line);
-                PC++;
-
-            }else if(opcode == "exit"){
-                PC++;
-                exit(0);
-
-
-            }else if(opcode == "print"){
-                PrintInstruction printInsrt(ram);
-                printInsrt.execute(line);
-                PC++;
-
-            }else if(opcode == "jump"){
-                JumpInstruction jumpInstr(PC);
-                jumpInstr.execute(line);
-
-            }
-
-        }
-    }*/
-
     void decodeAndExecute() {
+        ram.setDefultValue();
         const auto& rawInstructions = rom.getData();
 
         while (PC < rawInstructions.size()) {
             std::string line = rawInstructions[PC];
             std::string opcode = getFirstWord(line);
 
-            std::unique_ptr<Instruction> instr;  // Define a unique_ptr for the Instruction base class
+            std::unique_ptr<Instruction> instr;
 
             if (opcode == "set") {
                 instr = std::make_unique<SetInstruction>(ram);
@@ -119,23 +84,17 @@ public:
 
             }
 
-            if (instr) {  // If we successfully created an instruction object
+            if (instr) {
                 instr->execute(line);
 
-                // Only increment PC if the instruction wasn't "jump"
                 if (opcode != "jump") {
                     PC++;
                 }
             } else {
-                // If the instruction was unknown
-                PC++;
+                std::cerr << "Invalid opcode!" << std::endl;
+                exit(0);
             }
         }
     }
-
-
-
-
-
 };
 

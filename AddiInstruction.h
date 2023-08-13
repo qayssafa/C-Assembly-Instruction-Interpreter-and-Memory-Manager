@@ -1,6 +1,3 @@
-//
-// Created by qays on 8/10/23.
-//
 
 #pragma once
 #include "Instruction.h"

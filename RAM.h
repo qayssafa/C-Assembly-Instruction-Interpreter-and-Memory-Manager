@@ -1,6 +1,3 @@
-//
-// Created by qays on 8/9/23.
-//
 
 #include "vector"
 #include "string"
@@ -15,5 +12,10 @@ public:
     }
     void setValue(int address , int value){
         data[address] = std::to_string(value);
+    }
+    void setDefultValue(){
+        for(int i = 0 ; i < data.size() ; i++){
+            data[i] = "0";
+        }
     }
 };

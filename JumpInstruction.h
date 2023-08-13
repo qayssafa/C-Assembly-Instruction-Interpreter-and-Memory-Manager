@@ -24,14 +24,11 @@ public:
             std::cerr << "Invalid format for jump instruction!" << std::endl;
             exit(0);
         }else{
-            PC = targetAddress;
+
+            PC = targetAddress - 1;
         }
 
-       /* if (opcode == "jump") {
-            PC = targetAddress;
-        } else {
-            std::cerr << "Incorrect opcode for JumpInstruction!" << std::endl;
-        }*/
+
     }
 };
 

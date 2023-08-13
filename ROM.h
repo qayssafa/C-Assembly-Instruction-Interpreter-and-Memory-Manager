@@ -1,6 +1,4 @@
-//
-// Created by qays on 8/9/23.
-//
+
 #include <iostream>
 #include "Memory.h"
 #pragma once
@@ -17,15 +15,22 @@ public:
         return data;
     }
     void storeData(const std::vector<std::string>& instructions) {
+
         if(!written) {
+            if(data.size() < instructions.size()) {
+            std::cout << "Warning: ROM size is smaller than the number of instructions" << std::endl;
+            exit(0);
+            }
             for(int i = 0; i < instructions.size() && i < data.size(); i++) {
                 data[i] = instructions[i];
             }
-            std::cout << "Data stored" << std::endl;
+
             written = true;
         } else {
             std::cout << "Data already stored" << std::endl;
         }
     }
+
+
 
 };
