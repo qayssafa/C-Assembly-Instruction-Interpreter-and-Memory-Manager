@@ -41,9 +41,7 @@ public:
         }
 
         inputFile.close();
-
-        //rom.storeData(instructions);
-
+        
     }
 
 
