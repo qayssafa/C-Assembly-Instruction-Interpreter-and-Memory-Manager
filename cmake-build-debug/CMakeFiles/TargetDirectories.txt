@@ -1,3 +1,0 @@
-/home/qays/imagry/TaskOne/cmake-build-debug/CMakeFiles/TaskOne.dir
-/home/qays/imagry/TaskOne/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/qays/imagry/TaskOne/cmake-build-debug/CMakeFiles/rebuild_cache.dir
