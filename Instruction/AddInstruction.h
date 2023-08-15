@@ -1,7 +1,7 @@
 
 #pragma once
 #include "Instruction.h"
-#include "RAM.h"
+#include "../Memory/RAM.h"
 #include <sstream>
 #include <iostream>
 
@@ -13,19 +13,14 @@ public:
     AddInstruction(RAM &ram) : ram(ram) {}
 
     void execute(std::string instruction) const override {
-        std::istringstream iss(instruction);
-        std::string opcode;
-        int addr1, addr2, addr3;
-        iss >> opcode >> addr1 >> addr2 >> addr3;
+        InstructionParts parts = Instruction::parseInstruction(instruction);
 
-        if (opcode != "add" || !iss.eof() || iss.fail()) {
+        if (parts.operands.size() != 3) {
             std::cerr << "Invalid format for ADD instruction!" << std::endl;
             exit(0);
-        }else{
-            int sum = ram.getValue(addr1) + ram.getValue(addr2);
-            ram.setValue(addr3, sum);
+        } else {
+            int sum = ram.getValue(parts.operands[0]) + ram.getValue(parts.operands[1]);
+            ram.setValue(parts.operands[2], sum);
         }
-
     }
 };
-

@@ -112,52 +112,52 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Memory.h",
+			"path" : "Memory/Memory.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "RAM.h",
+			"path" : "Memory/RAM.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "ROM.h",
+			"path" : "Memory/ROM.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "CPU.h",
+			"path" : "CPU/CPU.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Instruction.h",
+			"path" : "Instruction/Instruction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "SetInstruction.h",
+			"path" : "Instruction/SetInstruction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "AddInstruction.h",
+			"path" : "Instruction/AddInstruction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "AddiInstruction.h",
+			"path" : "Instruction/AddiInstruction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "PrintInstruction.h",
+			"path" : "Instruction/PrintInstruction.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "JumpInstruction.h",
+			"path" : "Instruction/JumpInstruction.h",
 			"sourceGroupIndex" : 1
 		}
 	],

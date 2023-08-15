@@ -2,13 +2,13 @@
 #include <fstream>
 #include <sstream>
 #include <memory>
-#include "ROM.h"
-#include "RAM.h"
-#include "SetInstruction.h"
-#include "AddInstruction.h"
-#include "AddiInstruction.h"
-#include "PrintInstruction.h"
-#include "JumpInstruction.h"
+#include "../Memory/ROM.h"
+#include "../Memory/RAM.h"
+#include "../Instruction/SetInstruction.h"
+#include "../Instruction/AddInstruction.h"
+#include "../Instruction/AddiInstruction.h"
+#include "../Instruction/PrintInstruction.h"
+#include "../Instruction/JumpInstruction.h"
 
 #pragma once
 
@@ -41,7 +41,7 @@ public:
         }
 
         inputFile.close();
-        
+
     }
 
 
@@ -79,7 +79,6 @@ public:
 
             } else if(opcode == "jump") {
                 instr = std::make_unique<JumpInstruction>(PC);
-
             }
 
             if (instr) {

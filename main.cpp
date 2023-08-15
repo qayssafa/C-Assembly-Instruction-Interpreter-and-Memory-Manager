@@ -1,8 +1,9 @@
-#include "RAM.h"
-#include "ROM.h"
-#include "CPU.h"
+#include "Memory/RAM.h"
+#include "Memory/ROM.h"
+#include "CPU/CPU.h"
 #define RAM_SIZE 255
 #define ROM_SIZE 15
+#define FILE_NAME "instructions.txt"
 
 
 int main() {
@@ -10,7 +11,7 @@ int main() {
     ROM rom(ROM_SIZE);
     CPU cpu(rom , ram);
 
-    cpu.start("instructions.txt");
+    cpu.start(FILE_NAME);
 
     return 0;
 }

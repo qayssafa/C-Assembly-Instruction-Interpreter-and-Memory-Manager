@@ -8,13 +8,9 @@ private:
     bool written = false;
 public:
     ROM(int size): Memory(size){}
-    int getValue(int address) const override {
-        return std::stoi(data[address]);
-    }
-    const std::vector<std::string>& getData() const {
-        return data;
-    }
+
     void storeData(const std::vector<std::string>& instructions) {
+
 
         if(!written) {
             if(data.size() < instructions.size()) {
@@ -30,6 +26,8 @@ public:
             std::cout << "Data already stored" << std::endl;
         }
     }
+
+
 
 
 
